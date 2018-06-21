@@ -824,6 +824,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
@@ -840,69 +842,102 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-var DataGrid = function DataGrid(_ref) {
-  var xLabels = _ref.xLabels,
-      yLabels = _ref.yLabels,
-      data = _ref.data,
-      objects = _ref.objects,
-      xLabelWidth = _ref.xLabelWidth,
-      background = _ref.background,
-      height = _ref.height,
-      yLabelTextAlign = _ref.yLabelTextAlign,
-      unit = _ref.unit,
-      handleClick = _ref.handleClick;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  var flatArray = data.reduce(function (i, o) {
-    return [].concat(_toConsumableArray(o), _toConsumableArray(i));
-  }, []);
-  var max = Math.max.apply(Math, _toConsumableArray(flatArray));
-  var min = Math.min.apply(Math, _toConsumableArray(flatArray));
-  var selected = undefined.state ? undefined.state.selected : false;
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-  setSelected = function setSelected(selected) {
-    undefined.setState({ selected: selected });
-  };
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-  return _react2.default.createElement(
-    'div',
-    null,
-    yLabels.map(function (y, yi) {
+var DataGrid = function (_Component) {
+  _inherits(DataGrid, _Component);
+
+  function DataGrid() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, DataGrid);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DataGrid.__proto__ || Object.getPrototypeOf(DataGrid)).call.apply(_ref, [this].concat(args))), _this), _this.getSol = function () {
+      return _this.state ? _this.state.sol : null;
+    }, _this.setSelected = function (selected) {
+      _this.setState({ selected: selected });
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(DataGrid, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          xLabels = _props.xLabels,
+          yLabels = _props.yLabels,
+          data = _props.data,
+          objects = _props.objects,
+          xLabelWidth = _props.xLabelWidth,
+          background = _props.background,
+          height = _props.height,
+          yLabelTextAlign = _props.yLabelTextAlign,
+          unit = _props.unit,
+          handleClick = _props.handleClick;
+
+      var flatArray = data.reduce(function (i, o) {
+        return [].concat(_toConsumableArray(o), _toConsumableArray(i));
+      }, []);
+      var max = Math.max.apply(Math, _toConsumableArray(flatArray));
+      var min = Math.min.apply(Math, _toConsumableArray(flatArray));
+      var selected = this.state ? this.state.selected : false;
+
       return _react2.default.createElement(
         'div',
-        { key: y, style: { display: 'flex' } },
-        _react2.default.createElement(
-          _FixedBox2.default,
-          { width: xLabelWidth },
-          _react2.default.createElement(
-            'div',
-            { style: { textAlign: yLabelTextAlign, paddingRight: '5px', paddingTop: height / 3.7 + 'px' } },
-            y
-          )
-        ),
-        xLabels.map(function (x, xi) {
+        null,
+        yLabels.map(function (y, yi) {
           return _react2.default.createElement(
             'div',
-            {
-              title: '' + data[yi][xi] + ' ' + unit,
-              onClick: function onClick() {
-                return setSelected();
-              },
-              key: x + '_' + y,
-              style: {
-                background: background,
-                margin: '1px 1px 0 0',
-                height: selected ? height + 100 : height,
-                flex: 1,
-                opacity: (data[yi][xi] - min) / (max - min) || 0
-              }
-            },
-            '\xA0'
+            { key: y, style: { display: 'flex' } },
+            _react2.default.createElement(
+              _FixedBox2.default,
+              { width: xLabelWidth },
+              _react2.default.createElement(
+                'div',
+                { style: { textAlign: yLabelTextAlign, paddingRight: '5px', paddingTop: height / 3.7 + 'px' } },
+                y
+              )
+            ),
+            xLabels.map(function (x, xi) {
+              return _react2.default.createElement(
+                'div',
+                {
+                  title: '' + data[yi][xi] + ' ' + unit,
+                  onClick: function onClick() {
+                    return setSelected();
+                  },
+                  key: x + '_' + y,
+                  style: {
+                    background: background,
+                    margin: '1px 1px 0 0',
+                    height: selected ? height + 100 : height,
+                    flex: 1,
+                    opacity: (data[yi][xi] - min) / (max - min) || 0
+                  }
+                },
+                '\xA0'
+              );
+            })
           );
         })
       );
-    })
-  );
-};
+    }
+  }]);
+
+  return DataGrid;
+}(_react.Component);
+
+exports.default = DataGrid;
+;
 
 DataGrid.propTypes = {
   xLabels: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])).isRequired,
@@ -920,8 +955,6 @@ DataGrid.propTypes = {
 DataGrid.defaultProps = {
   handleClick: null
 };
-
-exports.default = DataGrid;
 
 /***/ }),
 /* 13 */

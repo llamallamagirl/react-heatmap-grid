@@ -24,13 +24,17 @@ module.exports = {
   devtool: 'source-map',
   resolve: {
     extensions: ['.js', '.jsx'],
+    alias: { 'react/lib/ReactMount': 'react-dom/lib/ReactMount' }
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader'],
+        loaders: "babel-loader",
+        query: {
+          presets: ["es2015", "stage-0", "react"],
+        },
       }, {
         test: /\.scss$/,
         use: [
