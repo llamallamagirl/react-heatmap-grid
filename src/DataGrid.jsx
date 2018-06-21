@@ -24,7 +24,6 @@ export default class DataGrid extends Component {
     const flatArray = data.reduce((i, o) => [...o, ...i], []);
     const max = Math.max(...flatArray);
     const min = Math.min(...flatArray);
-    const selected = this.isSelected(`${xi}-${yi}`);
 
     return (
       <div>
@@ -41,7 +40,7 @@ export default class DataGrid extends Component {
                 style={{
                   background,
                   margin: '1px 1px 0 0',
-                  height: selected ? height + 100 : height,
+                  height: this.isSelected(`${xi}-${yi}`) ? height + 100 : height,
                   flex: 1,
                   opacity: (data[yi][xi] - min) / (max - min) || 0,
                 }}

@@ -919,7 +919,6 @@ var DataGrid = function (_Component) {
       }, []);
       var max = Math.max.apply(Math, _toConsumableArray(flatArray));
       var min = Math.min.apply(Math, _toConsumableArray(flatArray));
-      var selected = this.isSelected(xi + '-' + yi);
 
       return _react2.default.createElement(
         'div',
@@ -949,7 +948,7 @@ var DataGrid = function (_Component) {
                   style: {
                     background: background,
                     margin: '1px 1px 0 0',
-                    height: selected ? height + 100 : height,
+                    height: _this2.isSelected(xi + '-' + yi) ? height + 100 : height,
                     flex: 1,
                     opacity: (data[yi][xi] - min) / (max - min) || 0
                   }
