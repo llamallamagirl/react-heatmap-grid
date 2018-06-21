@@ -811,7 +811,7 @@ var HeatMap = function (_Component) {
   }]);
 
   return HeatMap;
-}(Component);
+}(_react.Component);
 
 exports.default = HeatMap;
 
