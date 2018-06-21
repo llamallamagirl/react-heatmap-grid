@@ -15,7 +15,7 @@ export default class DataGrid extends Component {
   }
 
   setSelected = (selected) => {
-    const newVal = (selected === this.getSelected()) ? null : selected;
+    const newVal = (selected === this.isSelected()) ? null : selected;
     this.setState({ selected: newVal });
   }
 
