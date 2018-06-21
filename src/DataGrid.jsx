@@ -4,12 +4,14 @@ import FixedBox from './FixedBox';
 
 export default class DataGrid extends Component {
   constructor(props) {
-    super(props);    
-    this.state = { sol: false };
+    super(props);
+    this.getSelected = this.getSelected.bind(this);
+    this.setSelected = this.setSelected.bind(this);
+    this.state = { selected: false };
   }
 
-  getSol = () => {
-    return this.state.sol;
+  getSelected = () => {
+    return this.state.selected;
   }
 
   setSelected = (selected) => {
@@ -21,7 +23,7 @@ export default class DataGrid extends Component {
     const flatArray = data.reduce((i, o) => [...o, ...i], []);
     const max = Math.max(...flatArray);
     const min = Math.min(...flatArray);
-    const selected = this.state ? this.state.selected : false;
+    const selected = this.getSelected();
 
     return (
       <div>

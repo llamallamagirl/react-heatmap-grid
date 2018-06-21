@@ -882,15 +882,17 @@ var DataGrid = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (DataGrid.__proto__ || Object.getPrototypeOf(DataGrid)).call(this, props));
 
-    _this.getSol = function () {
-      return _this.state.sol;
+    _this.getSelected = function () {
+      return _this.state.selected;
     };
 
     _this.setSelected = function (selected) {
       _this.setState({ selected: selected });
     };
 
-    _this.state = { sol: false };
+    _this.getSelected = _this.getSelected.bind(_this);
+    _this.setSelected = _this.setSelected.bind(_this);
+    _this.state = { selected: false };
     return _this;
   }
 
@@ -914,7 +916,7 @@ var DataGrid = function (_Component) {
       }, []);
       var max = Math.max.apply(Math, _toConsumableArray(flatArray));
       var min = Math.min.apply(Math, _toConsumableArray(flatArray));
-      var selected = this.state ? this.state.selected : false;
+      var selected = this.getSelected();
 
       return _react2.default.createElement(
         'div',
