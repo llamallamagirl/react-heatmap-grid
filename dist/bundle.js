@@ -899,6 +899,8 @@ var DataGrid = function (_Component) {
   _createClass(DataGrid, [{
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var _props = this.props,
           xLabels = _props.xLabels,
           yLabels = _props.yLabels,
@@ -940,7 +942,7 @@ var DataGrid = function (_Component) {
                 {
                   title: '' + data[yi][xi] + ' ' + unit,
                   onClick: function onClick() {
-                    return setSelected();
+                    return _this2.setSelected();
                   },
                   key: x + '_' + y,
                   style: {

@@ -35,7 +35,7 @@ export default class DataGrid extends Component {
             {xLabels.map((x, xi) => (
               <div
                 title={`${data[yi][xi]}` + ' ' + unit}
-                onClick={() => setSelected()}
+                onClick={() => this.setSelected()}
                 key={`${x}_${y}`}
                 style={{
                   background,
