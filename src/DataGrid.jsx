@@ -7,15 +7,16 @@ export default class DataGrid extends Component {
     super(props);
     this.getSelected = this.getSelected.bind(this);
     this.setSelected = this.setSelected.bind(this);
-    this.state = { selected: false };
+    this.state = { selected: null };
   }
 
-  getSelected = () => {
-    return this.state.selected;
+  isSelected = (string) => {
+    return string === this.state.selected;
   }
 
   setSelected = (selected) => {
-    this.setState({ selected });
+    const newVal = (selected === this.getSelected()) ? null : selected;
+    this.setState({ selected: newVal });
   }
 
   render () {
@@ -23,7 +24,7 @@ export default class DataGrid extends Component {
     const flatArray = data.reduce((i, o) => [...o, ...i], []);
     const max = Math.max(...flatArray);
     const min = Math.min(...flatArray);
-    const selected = this.getSelected();
+    const selected = this.isSelected(`${xi}-${yi}`);
 
     return (
       <div>
@@ -35,7 +36,7 @@ export default class DataGrid extends Component {
             {xLabels.map((x, xi) => (
               <div
                 title={`${data[yi][xi]}` + ' ' + unit}
-                onClick={() => this.setSelected()}
+                onClick={() => this.setSelected(`${xi}-${yi}`)}
                 key={`${x}_${y}`}
                 style={{
                   background,

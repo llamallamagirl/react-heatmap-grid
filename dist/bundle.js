@@ -882,17 +882,18 @@ var DataGrid = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (DataGrid.__proto__ || Object.getPrototypeOf(DataGrid)).call(this, props));
 
-    _this.getSelected = function () {
-      return _this.state.selected;
+    _this.isSelected = function (string) {
+      return string === _this.state.selected;
     };
 
     _this.setSelected = function (selected) {
-      _this.setState({ selected: selected });
+      var newVal = selected === _this.getSelected() ? null : selected;
+      _this.setState({ selected: newVal });
     };
 
     _this.getSelected = _this.getSelected.bind(_this);
     _this.setSelected = _this.setSelected.bind(_this);
-    _this.state = { selected: false };
+    _this.state = { selected: null };
     return _this;
   }
 
@@ -918,7 +919,7 @@ var DataGrid = function (_Component) {
       }, []);
       var max = Math.max.apply(Math, _toConsumableArray(flatArray));
       var min = Math.min.apply(Math, _toConsumableArray(flatArray));
-      var selected = this.getSelected();
+      var selected = this.isSelected(xi + '-' + yi);
 
       return _react2.default.createElement(
         'div',
@@ -942,7 +943,7 @@ var DataGrid = function (_Component) {
                 {
                   title: '' + data[yi][xi] + ' ' + unit,
                   onClick: function onClick() {
-                    return _this2.setSelected();
+                    return _this2.setSelected(xi + '-' + yi);
                   },
                   key: x + '_' + y,
                   style: {
