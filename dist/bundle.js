@@ -857,6 +857,12 @@ var DataGrid = function DataGrid(_ref) {
   }, []);
   var max = Math.max.apply(Math, _toConsumableArray(flatArray));
   var min = Math.min.apply(Math, _toConsumableArray(flatArray));
+  var selected = undefined.state ? undefined.state.selected : false;
+
+  setSelected = function setSelected(selected) {
+    undefined.setState({ selected: selected });
+  };
+
   return _react2.default.createElement(
     'div',
     null,
@@ -878,14 +884,14 @@ var DataGrid = function DataGrid(_ref) {
             'div',
             {
               title: '' + data[yi][xi] + ' ' + unit,
-              onClick: handleClick && objects ? function () {
-                return handleClick(objects[yi][xi]);
-              } : null,
+              onClick: function onClick() {
+                return setSelected();
+              },
               key: x + '_' + y,
               style: {
                 background: background,
                 margin: '1px 1px 0 0',
-                height: height,
+                height: selected ? height + 100 : height,
                 flex: 1,
                 opacity: (data[yi][xi] - min) / (max - min) || 0
               }

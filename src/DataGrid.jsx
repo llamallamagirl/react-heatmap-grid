@@ -17,6 +17,12 @@ const DataGrid = ({
   const flatArray = data.reduce((i, o) => [...o, ...i], []);
   const max = Math.max(...flatArray);
   const min = Math.min(...flatArray);
+  const selected = this.state ? this.state.selected : false;
+
+  setSelected = (selected) => {
+    this.setState({ selected });
+  }
+
   return (
     <div>
       {yLabels.map((y, yi) => (
@@ -27,12 +33,12 @@ const DataGrid = ({
           {xLabels.map((x, xi) => (
             <div
               title={`${data[yi][xi]}` + ' ' + unit}
-              onClick={(handleClick && objects ? () => handleClick(objects[yi][xi]) : null)}
+              onClick={() => setSelected()}
               key={`${x}_${y}`}
               style={{
                 background,
                 margin: '1px 1px 0 0',
-                height,
+                height: selected ? height + 100 : height,
                 flex: 1,
                 opacity: (data[yi][xi] - min) / (max - min) || 0,
               }}
