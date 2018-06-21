@@ -3,15 +3,19 @@ import PropTypes from 'prop-types';
 import XLabels from './XLabels';
 import DataGrid from './DataGrid';
 
-function HeatMap({xLabels, yLabels, data, objects, background, height, xLabelWidth, yLabelTextAlign, unit, handleClick}) {
-  return (
-    <div>
-      <XLabels labels={xLabels} width={xLabelWidth} />
-      <DataGrid
-        {...{xLabels, yLabels, data, objects, background, height, xLabelWidth, yLabelTextAlign, unit, handleClick}}
-      />
-    </div>
-  );
+export default class HeatMap extends Component {
+  render() {
+    const {xLabels, yLabels, data, objects, background, height, xLabelWidth, yLabelTextAlign, unit, handleClick} = this.props;
+
+    return (
+      <div>
+        <XLabels labels={xLabels} width={xLabelWidth} />
+        <DataGrid
+          {...{xLabels, yLabels, data, objects, background, height, xLabelWidth, yLabelTextAlign, unit, handleClick}}
+        />
+      </div>
+    );
+  };
 }
 
 HeatMap.propTypes = {
@@ -40,5 +44,3 @@ HeatMap.defaultProps = {
   handleClick: null,
   objects: null,
 };
-
-export default HeatMap;
