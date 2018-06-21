@@ -6,11 +6,13 @@ const DataGrid = ({
   xLabels,
   yLabels,
   data,
+  objects,
   xLabelWidth,
   background,
   height,
   yLabelTextAlign,
   unit,
+  handleClick,
 }) => {
   const flatArray = data.reduce((i, o) => [...o, ...i], []);
   const max = Math.max(...flatArray);
@@ -25,6 +27,7 @@ const DataGrid = ({
           {xLabels.map((x, xi) => (
             <div
               title={`${data[yi][xi]}` + ' ' + unit}
+              onClick={(handleClick && objects ? () => handleClick(objects[yi][xi]) : null)}
               key={`${x}_${y}`}
               style={{
                 background,
@@ -51,11 +54,17 @@ DataGrid.propTypes = {
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   ).isRequired,
   data: PropTypes.arrayOf(PropTypes.array).isRequired,
+  objects: PropTypes.arrayOf(PropTypes.object).isRequired,
   background: PropTypes.string.isRequired,
   height: PropTypes.number.isRequired,
   xLabelWidth: PropTypes.number.isRequired,
   yLabelTextAlign: PropTypes.string.isRequired,
   unit: PropTypes.string.isRequired,
+  handleClick: PropTypes.func,
 };
+
+DataGrid.defaultProps = {
+  handleClick: null,
+}
 
 export default DataGrid;

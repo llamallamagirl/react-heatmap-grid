@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import XLabels from './XLabels';
 import DataGrid from './DataGrid';
 
-function HeatMap({xLabels, yLabels, data, background, height, xLabelWidth, yLabelTextAlign, unit}) {
+function HeatMap({xLabels, yLabels, data, objects, background, height, xLabelWidth, yLabelTextAlign, unit, handleClick}) {
   return (
     <div>
       <XLabels labels={xLabels} width={xLabelWidth} />
       <DataGrid
-        {...{xLabels, yLabels, data, background, height, xLabelWidth, yLabelTextAlign, unit}}
+        {...{xLabels, yLabels, data, objects, background, height, xLabelWidth, yLabelTextAlign, unit, handleClick}}
       />
     </div>
   );
@@ -22,11 +22,13 @@ HeatMap.propTypes = {
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   ).isRequired,
   data: PropTypes.arrayOf(PropTypes.array).isRequired,
+  objects: PropTypes.arrayOf(PropTypes.object),
   background: PropTypes.string,
   height: PropTypes.number,
   xLabelWidth: PropTypes.number,
   yLabelTextAlign: PropTypes.string,
   unit: PropTypes.string,
+  handleClick: PropTypes.func,
 };
 
 HeatMap.defaultProps = {
@@ -35,6 +37,8 @@ HeatMap.defaultProps = {
   xLabelWidth: 60,
   yLabelTextAlign: 'right',
   unit: '',
+  handleClick: null,
+  objects: null,
 };
 
 export default HeatMap;
