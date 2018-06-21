@@ -891,7 +891,7 @@ var DataGrid = function (_Component) {
       _this.setState({ selected: newVal });
     };
 
-    _this.getSelected = _this.getSelected.bind(_this);
+    _this.isSelected = _this.isSelected.bind(_this);
     _this.setSelected = _this.setSelected.bind(_this);
     _this.state = { selected: null };
     return _this;

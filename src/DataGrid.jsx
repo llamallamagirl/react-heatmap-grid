@@ -5,7 +5,7 @@ import FixedBox from './FixedBox';
 export default class DataGrid extends Component {
   constructor(props) {
     super(props);
-    this.getSelected = this.getSelected.bind(this);
+    this.isSelected = this.isSelected.bind(this);
     this.setSelected = this.setSelected.bind(this);
     this.state = { selected: null };
   }
