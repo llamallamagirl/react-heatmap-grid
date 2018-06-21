@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import FixedBox from './FixedBox';
 
 export default class DataGrid extends Component {
+  constructor(props) {
+    super(props);    
+    this.state = { sol: false };
+  }
 
   getSol = () => {
-    return this.state ? this.state.sol : null;
+    return this.state.sol;
   }
 
   setSelected = (selected) => {

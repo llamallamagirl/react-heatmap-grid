@@ -851,22 +851,21 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var DataGrid = function (_Component) {
   _inherits(DataGrid, _Component);
 
-  function DataGrid() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
+  function DataGrid(props) {
     _classCallCheck(this, DataGrid);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    var _this = _possibleConstructorReturn(this, (DataGrid.__proto__ || Object.getPrototypeOf(DataGrid)).call(this, props));
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DataGrid.__proto__ || Object.getPrototypeOf(DataGrid)).call.apply(_ref, [this].concat(args))), _this), _this.getSol = function () {
-      return _this.state ? _this.state.sol : null;
-    }, _this.setSelected = function (selected) {
+    _this.getSol = function () {
+      return _this.state.sol;
+    };
+
+    _this.setSelected = function (selected) {
       _this.setState({ selected: selected });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    };
+
+    _this.state = { sol: false };
+    return _this;
   }
 
   _createClass(DataGrid, [{
