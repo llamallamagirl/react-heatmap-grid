@@ -953,7 +953,7 @@ var DataGrid = function (_Component) {
                     opacity: (data[yi][xi] - min) / (max - min) || 0
                   }
                 },
-                _this2.setSelected(xi + '-' + yi) && descriptions && descriptions[yi][xi],
+                _this2.isSelected(xi + '-' + yi) && descriptions && descriptions[yi][xi],
                 '\xA0'
               );
             })

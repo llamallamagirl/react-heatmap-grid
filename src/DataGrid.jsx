@@ -45,7 +45,7 @@ export default class DataGrid extends Component {
                   opacity: (data[yi][xi] - min) / (max - min) || 0,
                 }}
               >
-                { this.setSelected(`${xi}-${yi}`) && descriptions && descriptions[yi][xi] }
+                { this.isSelected(`${xi}-${yi}`) && descriptions && descriptions[yi][xi] }
                 &nbsp;
               </div>
             ))}
