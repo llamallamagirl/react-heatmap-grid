@@ -15,12 +15,12 @@ export default class DataGrid extends Component {
   }
 
   setSelected = (selected) => {
-    const newVal = (selected === this.isSelected()) ? null : selected;
+    const newVal = this.isSelected(selected) ? null : selected;
     this.setState({ selected: newVal });
   }
 
   render () {
-    const { xLabels, yLabels, data, objects, xLabelWidth, background, height, yLabelTextAlign, unit, handleClick } = this.props;
+    const { xLabels, yLabels, data, descriptions, xLabelWidth, background, height, yLabelTextAlign, unit, handleClick } = this.props;
     const flatArray = data.reduce((i, o) => [...o, ...i], []);
     const max = Math.max(...flatArray);
     const min = Math.min(...flatArray);
@@ -45,6 +45,7 @@ export default class DataGrid extends Component {
                   opacity: (data[yi][xi] - min) / (max - min) || 0,
                 }}
               >
+                { this.setSelected(`${xi}-${yi}`) && descriptions && descriptions[yi][xi] }
                 &nbsp;
               </div>
             ))}
@@ -63,7 +64,7 @@ DataGrid.propTypes = {
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   ).isRequired,
   data: PropTypes.arrayOf(PropTypes.array).isRequired,
-  objects: PropTypes.arrayOf(PropTypes.object).isRequired,
+  descriptions: PropTypes.arrayOf(PropTypes.string),
   background: PropTypes.string.isRequired,
   height: PropTypes.number.isRequired,
   xLabelWidth: PropTypes.number.isRequired,
@@ -74,4 +75,5 @@ DataGrid.propTypes = {
 
 DataGrid.defaultProps = {
   handleClick: null,
+  descriptions: null,
 }

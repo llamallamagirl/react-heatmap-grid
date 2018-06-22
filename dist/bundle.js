@@ -792,7 +792,7 @@ var HeatMap = function (_Component) {
           xLabels = _props.xLabels,
           yLabels = _props.yLabels,
           data = _props.data,
-          objects = _props.objects,
+          descriptions = _props.descriptions,
           background = _props.background,
           height = _props.height,
           xLabelWidth = _props.xLabelWidth,
@@ -805,7 +805,7 @@ var HeatMap = function (_Component) {
         'div',
         null,
         _react2.default.createElement(_XLabels2.default, { labels: xLabels, width: xLabelWidth }),
-        _react2.default.createElement(_DataGrid2.default, { xLabels: xLabels, yLabels: yLabels, data: data, objects: objects, background: background, height: height, xLabelWidth: xLabelWidth, yLabelTextAlign: yLabelTextAlign, unit: unit, handleClick: handleClick })
+        _react2.default.createElement(_DataGrid2.default, { xLabels: xLabels, yLabels: yLabels, data: data, descriptions: descriptions, background: background, height: height, xLabelWidth: xLabelWidth, yLabelTextAlign: yLabelTextAlign, unit: unit, handleClick: handleClick })
       );
     }
   }]);
@@ -820,7 +820,7 @@ HeatMap.propTypes = {
   xLabels: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])).isRequired,
   yLabels: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])).isRequired,
   data: _propTypes2.default.arrayOf(_propTypes2.default.array).isRequired,
-  objects: _propTypes2.default.arrayOf(_propTypes2.default.object),
+  descriptions: _propTypes2.default.arrayOf(_propTypes2.default.object),
   background: _propTypes2.default.string,
   height: _propTypes2.default.number,
   xLabelWidth: _propTypes2.default.number,
@@ -836,7 +836,7 @@ HeatMap.defaultProps = {
   yLabelTextAlign: 'right',
   unit: '',
   handleClick: null,
-  objects: null
+  descriptions: null
 };
 
 /***/ }),
@@ -887,7 +887,7 @@ var DataGrid = function (_Component) {
     };
 
     _this.setSelected = function (selected) {
-      var newVal = selected === _this.isSelected() ? null : selected;
+      var newVal = _this.isSelected(selected) ? null : selected;
       _this.setState({ selected: newVal });
     };
 
@@ -906,7 +906,7 @@ var DataGrid = function (_Component) {
           xLabels = _props.xLabels,
           yLabels = _props.yLabels,
           data = _props.data,
-          objects = _props.objects,
+          descriptions = _props.descriptions,
           xLabelWidth = _props.xLabelWidth,
           background = _props.background,
           height = _props.height,
@@ -953,6 +953,7 @@ var DataGrid = function (_Component) {
                     opacity: (data[yi][xi] - min) / (max - min) || 0
                   }
                 },
+                _this2.setSelected(xi + '-' + yi) && descriptions && descriptions[yi][xi],
                 '\xA0'
               );
             })
@@ -972,7 +973,7 @@ DataGrid.propTypes = {
   xLabels: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])).isRequired,
   yLabels: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])).isRequired,
   data: _propTypes2.default.arrayOf(_propTypes2.default.array).isRequired,
-  objects: _propTypes2.default.arrayOf(_propTypes2.default.object).isRequired,
+  descriptions: _propTypes2.default.arrayOf(_propTypes2.default.string),
   background: _propTypes2.default.string.isRequired,
   height: _propTypes2.default.number.isRequired,
   xLabelWidth: _propTypes2.default.number.isRequired,
@@ -982,7 +983,8 @@ DataGrid.propTypes = {
 };
 
 DataGrid.defaultProps = {
-  handleClick: null
+  handleClick: null,
+  descriptions: null
 };
 
 /***/ }),

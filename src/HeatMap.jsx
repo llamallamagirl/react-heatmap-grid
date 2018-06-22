@@ -5,13 +5,13 @@ import DataGrid from './DataGrid';
 
 export default class HeatMap extends Component {
   render() {
-    const {xLabels, yLabels, data, objects, background, height, xLabelWidth, yLabelTextAlign, unit, handleClick} = this.props;
+    const {xLabels, yLabels, data, descriptions, background, height, xLabelWidth, yLabelTextAlign, unit, handleClick} = this.props;
 
     return (
       <div>
         <XLabels labels={xLabels} width={xLabelWidth} />
         <DataGrid
-          {...{xLabels, yLabels, data, objects, background, height, xLabelWidth, yLabelTextAlign, unit, handleClick}}
+          {...{xLabels, yLabels, data, descriptions, background, height, xLabelWidth, yLabelTextAlign, unit, handleClick}}
         />
       </div>
     );
@@ -26,7 +26,7 @@ HeatMap.propTypes = {
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   ).isRequired,
   data: PropTypes.arrayOf(PropTypes.array).isRequired,
-  objects: PropTypes.arrayOf(PropTypes.object),
+  descriptions: PropTypes.arrayOf(PropTypes.object),
   background: PropTypes.string,
   height: PropTypes.number,
   xLabelWidth: PropTypes.number,
@@ -42,5 +42,5 @@ HeatMap.defaultProps = {
   yLabelTextAlign: 'right',
   unit: '',
   handleClick: null,
-  objects: null,
+  descriptions: null,
 };
