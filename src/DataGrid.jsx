@@ -41,11 +41,12 @@ export default class DataGrid extends Component {
                   margin: '1px 1px 0 0',
                   height: this.isSelected(`${xi}-${yi}`) ? 'unset' : height,
                   flex: 1,
-                  color: data[yi][xi] || '#ddd',
+                  background: data[yi][xi] || '#f1f1f1',
+                  color: '#fff',
                 }}
               >
                 { this.isSelected(`${xi}-${yi}`) && descriptions && descriptions[yi][xi] }
-                &nbsp;
+                { !this.isSelected(`${xi}-${yi}`) && <span>&nbsp;</span> }
               </div>
             ))}
           </div>

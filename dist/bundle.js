@@ -946,11 +946,16 @@ var DataGrid = function (_Component) {
                     margin: '1px 1px 0 0',
                     height: _this2.isSelected(xi + '-' + yi) ? 'unset' : height,
                     flex: 1,
-                    color: data[yi][xi] || '#ddd'
+                    background: data[yi][xi] || '#f1f1f1',
+                    color: '#fff'
                   }
                 },
                 _this2.isSelected(xi + '-' + yi) && descriptions && descriptions[yi][xi],
-                '\xA0'
+                !_this2.isSelected(xi + '-' + yi) && _react2.default.createElement(
+                  'span',
+                  null,
+                  '\xA0'
+                )
               );
             })
           );
