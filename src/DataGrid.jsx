@@ -20,7 +20,7 @@ export default class DataGrid extends Component {
   }
 
   render () {
-    const { xLabels, yLabels, data, descriptions, xLabelWidth, background, height, yLabelTextAlign, unit, handleClick } = this.props;
+    const { xLabels, yLabels, data, descriptions, xLabelWidth, height, yLabelTextAlign, unit, handleClick } = this.props;
     const flatArray = data.reduce((i, o) => [...o, ...i], []);
     const max = Math.max(...flatArray);
     const min = Math.min(...flatArray);
@@ -38,11 +38,10 @@ export default class DataGrid extends Component {
                 onClick={() => this.setSelected(`${xi}-${yi}`)}
                 key={`${x}_${y}`}
                 style={{
-                  background,
                   margin: '1px 1px 0 0',
-                  height: this.isSelected(`${xi}-${yi}`) ? height + 100 : height,
+                  height: this.isSelected(`${xi}-${yi}`) ? 'unset' : height,
                   flex: 1,
-                  opacity: (data[yi][xi] - min) / (max - min) || 0,
+                  color: data[yi][xi] || '#ddd',
                 }}
               >
                 { this.isSelected(`${xi}-${yi}`) && descriptions && descriptions[yi][xi] }
@@ -64,8 +63,7 @@ DataGrid.propTypes = {
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   ).isRequired,
   data: PropTypes.arrayOf(PropTypes.array).isRequired,
-  descriptions: PropTypes.arrayOf(PropTypes.string),
-  background: PropTypes.string.isRequired,
+  descriptions: PropTypes.arrayOf(PropTypes.array),
   height: PropTypes.number.isRequired,
   xLabelWidth: PropTypes.number.isRequired,
   yLabelTextAlign: PropTypes.string.isRequired,

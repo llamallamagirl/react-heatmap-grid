@@ -820,8 +820,7 @@ HeatMap.propTypes = {
   xLabels: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])).isRequired,
   yLabels: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])).isRequired,
   data: _propTypes2.default.arrayOf(_propTypes2.default.array).isRequired,
-  descriptions: _propTypes2.default.arrayOf(_propTypes2.default.object),
-  background: _propTypes2.default.string,
+  descriptions: _propTypes2.default.arrayOf(_propTypes2.default.array),
   height: _propTypes2.default.number,
   xLabelWidth: _propTypes2.default.number,
   yLabelTextAlign: _propTypes2.default.string,
@@ -830,7 +829,6 @@ HeatMap.propTypes = {
 };
 
 HeatMap.defaultProps = {
-  background: '#329fff',
   height: 30,
   xLabelWidth: 60,
   yLabelTextAlign: 'right',
@@ -908,7 +906,6 @@ var DataGrid = function (_Component) {
           data = _props.data,
           descriptions = _props.descriptions,
           xLabelWidth = _props.xLabelWidth,
-          background = _props.background,
           height = _props.height,
           yLabelTextAlign = _props.yLabelTextAlign,
           unit = _props.unit,
@@ -946,11 +943,10 @@ var DataGrid = function (_Component) {
                   },
                   key: x + '_' + y,
                   style: {
-                    background: background,
                     margin: '1px 1px 0 0',
-                    height: _this2.isSelected(xi + '-' + yi) ? height + 100 : height,
+                    height: _this2.isSelected(xi + '-' + yi) ? 'unset' : height,
                     flex: 1,
-                    opacity: (data[yi][xi] - min) / (max - min) || 0
+                    color: data[yi][xi] || '#ddd'
                   }
                 },
                 _this2.isSelected(xi + '-' + yi) && descriptions && descriptions[yi][xi],
@@ -973,8 +969,7 @@ DataGrid.propTypes = {
   xLabels: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])).isRequired,
   yLabels: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])).isRequired,
   data: _propTypes2.default.arrayOf(_propTypes2.default.array).isRequired,
-  descriptions: _propTypes2.default.arrayOf(_propTypes2.default.string),
-  background: _propTypes2.default.string.isRequired,
+  descriptions: _propTypes2.default.arrayOf(_propTypes2.default.array),
   height: _propTypes2.default.number.isRequired,
   xLabelWidth: _propTypes2.default.number.isRequired,
   yLabelTextAlign: _propTypes2.default.string.isRequired,

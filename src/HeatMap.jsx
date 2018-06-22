@@ -26,8 +26,7 @@ HeatMap.propTypes = {
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   ).isRequired,
   data: PropTypes.arrayOf(PropTypes.array).isRequired,
-  descriptions: PropTypes.arrayOf(PropTypes.object),
-  background: PropTypes.string,
+  descriptions: PropTypes.arrayOf(PropTypes.array),
   height: PropTypes.number,
   xLabelWidth: PropTypes.number,
   yLabelTextAlign: PropTypes.string,
@@ -36,7 +35,6 @@ HeatMap.propTypes = {
 };
 
 HeatMap.defaultProps = {
-  background: '#329fff',
   height: 30,
   xLabelWidth: 60,
   yLabelTextAlign: 'right',
