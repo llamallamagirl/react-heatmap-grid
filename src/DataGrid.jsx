@@ -29,7 +29,7 @@ export default class DataGrid extends Component {
       <div className="heat-data-grid">
         {yLabels.map((y, yi) => (
           <div key={y} style={{display: 'flex'}}>
-            <FixedBox width={xLabelWidth}>
+            <FixedBox className="heat-x-label" width={xLabelWidth}>
               <div style={{textAlign: yLabelTextAlign, paddingRight: '5px', paddingTop:`${height/3.7}px`}}>{y}</div>
             </FixedBox>
             {xLabels.map((x, xi) => (
