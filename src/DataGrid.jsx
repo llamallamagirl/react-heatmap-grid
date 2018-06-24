@@ -26,7 +26,7 @@ export default class DataGrid extends Component {
     const min = Math.min(...flatArray);
 
     return (
-      <div>
+      <div className="heat-data-grid">
         {yLabels.map((y, yi) => (
           <div key={y} style={{display: 'flex'}}>
             <FixedBox width={xLabelWidth}>

@@ -630,7 +630,7 @@ var FixedBox = function FixedBox(_ref) {
 
   return _react2.default.createElement(
     'div',
-    { style: { flex: '0 0 ' + width + 'px' } },
+    { className: 'angel-label', style: { flex: '0 0 ' + width + 'px' } },
     ' ',
     children,
     ' '
@@ -919,7 +919,7 @@ var DataGrid = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'heat-data-grid' },
         yLabels.map(function (y, yi) {
           return _react2.default.createElement(
             'div',
@@ -1018,7 +1018,7 @@ function XLabels(_ref) {
 
   return _react2.default.createElement(
     'div',
-    { style: { display: 'flex' } },
+    { className: 'heat-x-label', style: { display: 'flex' } },
     _react2.default.createElement(_FixedBox2.default, { width: width }),
     labels.map(function (x) {
       return _react2.default.createElement(
