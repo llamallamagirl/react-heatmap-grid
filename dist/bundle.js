@@ -923,7 +923,7 @@ var DataGrid = function (_Component) {
         yLabels.map(function (y, yi) {
           return _react2.default.createElement(
             'div',
-            { key: y, style: { display: 'flex' } },
+            { className: 'heat-x-label', key: y, style: { display: 'flex' } },
             _react2.default.createElement(
               _FixedBox2.default,
               { width: xLabelWidth },
@@ -1018,7 +1018,7 @@ function XLabels(_ref) {
 
   return _react2.default.createElement(
     'div',
-    { className: 'heat-x-label', style: { display: 'flex' } },
+    { style: { display: 'flex' } },
     _react2.default.createElement(_FixedBox2.default, { width: width }),
     labels.map(function (x) {
       return _react2.default.createElement(
