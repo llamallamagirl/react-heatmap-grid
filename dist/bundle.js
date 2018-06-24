@@ -926,10 +926,10 @@ var DataGrid = function (_Component) {
             { key: y, style: { display: 'flex' } },
             _react2.default.createElement(
               _FixedBox2.default,
-              { className: 'heat-x-label', width: xLabelWidth },
+              { width: xLabelWidth },
               _react2.default.createElement(
                 'div',
-                { style: { textAlign: yLabelTextAlign, paddingRight: '5px', paddingTop: height / 3.7 + 'px' } },
+                { className: 'heat-y-label', style: { textAlign: yLabelTextAlign, paddingRight: '5px', paddingTop: height / 3.7 + 'px' } },
                 y
               )
             ),
