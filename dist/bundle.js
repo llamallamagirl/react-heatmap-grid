@@ -1023,7 +1023,7 @@ function XLabels(_ref) {
     labels.map(function (x) {
       return _react2.default.createElement(
         'div',
-        { className: 'angel-label', key: x, style: { flex: 1, textAlign: 'center' } },
+        { className: 'angle-label', key: x, style: { flex: 1, textAlign: 'center' } },
         x
       );
     })
