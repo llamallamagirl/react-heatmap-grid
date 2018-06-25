@@ -630,7 +630,7 @@ var FixedBox = function FixedBox(_ref) {
 
   return _react2.default.createElement(
     'div',
-    { style: { flex: '0 0 ' + width + 'px' } },
+    { className: 'fixed-box', style: { flex: '0 0 ' + width + 'px', maxWidth: width } },
     ' ',
     children,
     ' '
