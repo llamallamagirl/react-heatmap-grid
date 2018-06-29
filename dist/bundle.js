@@ -908,7 +908,6 @@ var DataGrid = function (_Component) {
           xLabelWidth = _props.xLabelWidth,
           height = _props.height,
           yLabelTextAlign = _props.yLabelTextAlign,
-          unit = _props.unit,
           handleClick = _props.handleClick;
 
       var flatArray = data.reduce(function (i, o) {
@@ -937,7 +936,7 @@ var DataGrid = function (_Component) {
               return _react2.default.createElement(
                 'div',
                 {
-                  title: '' + data[yi][xi] + ' ' + unit,
+                  className: 'heat-box',
                   onClick: function onClick() {
                     return _this2.setSelected(xi + '-' + yi);
                   },
@@ -978,7 +977,6 @@ DataGrid.propTypes = {
   height: _propTypes2.default.number.isRequired,
   xLabelWidth: _propTypes2.default.number.isRequired,
   yLabelTextAlign: _propTypes2.default.string.isRequired,
-  unit: _propTypes2.default.string.isRequired,
   handleClick: _propTypes2.default.func
 };
 

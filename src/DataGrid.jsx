@@ -20,7 +20,7 @@ export default class DataGrid extends Component {
   }
 
   render () {
-    const { xLabels, yLabels, data, descriptions, xLabelWidth, height, yLabelTextAlign, unit, handleClick } = this.props;
+    const { xLabels, yLabels, data, descriptions, xLabelWidth, height, yLabelTextAlign, handleClick } = this.props;
     const flatArray = data.reduce((i, o) => [...o, ...i], []);
     const max = Math.max(...flatArray);
     const min = Math.min(...flatArray);
@@ -34,7 +34,7 @@ export default class DataGrid extends Component {
             </FixedBox>
             {xLabels.map((x, xi) => (
               <div
-                title={`${data[yi][xi]}` + ' ' + unit}
+              className="heat-box"
                 onClick={() => this.setSelected(`${xi}-${yi}`)}
                 key={`${x}_${y}`}
                 style={{
@@ -68,7 +68,6 @@ DataGrid.propTypes = {
   height: PropTypes.number.isRequired,
   xLabelWidth: PropTypes.number.isRequired,
   yLabelTextAlign: PropTypes.string.isRequired,
-  unit: PropTypes.string.isRequired,
   handleClick: PropTypes.func,
 };
 
