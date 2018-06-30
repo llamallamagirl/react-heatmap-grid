@@ -940,7 +940,7 @@ var DataGrid = function (_Component) {
                   onClick: function onClick() {
                     return _this2.setSelected(xi + '-' + yi);
                   },
-                  key: x + '_' + y,
+                  key: x.label1 + '-' + x.label2 + '_' + y,
                   style: {
                     margin: '1px 1px 0 0',
                     height: _this2.isSelected(xi + '-' + yi) ? 'unset' : height,
@@ -1021,7 +1021,7 @@ function XLabels(_ref) {
     labels.map(function (x) {
       return _react2.default.createElement(
         'div',
-        { className: 'label-inner', key: x.line2, style: { flex: 1, textAlign: 'center' } },
+        { className: 'label-inner', key: x.line1 + '-' + x.line2, style: { flex: 1, textAlign: 'center' } },
         _react2.default.createElement(
           'div',
           { className: 'label-1' },
