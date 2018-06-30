@@ -817,7 +817,7 @@ exports.default = HeatMap;
 
 
 HeatMap.propTypes = {
-  xLabels: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])).isRequired,
+  xLabels: _propTypes2.default.arrayOf(_propTypes2.default.object).isRequired,
   yLabels: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])).isRequired,
   data: _propTypes2.default.arrayOf(_propTypes2.default.array).isRequired,
   descriptions: _propTypes2.default.arrayOf(_propTypes2.default.array),
@@ -970,7 +970,7 @@ exports.default = DataGrid;
 ;
 
 DataGrid.propTypes = {
-  xLabels: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])).isRequired,
+  xLabels: _propTypes2.default.arrayOf(_propTypes2.default.object).isRequired,
   yLabels: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])).isRequired,
   data: _propTypes2.default.arrayOf(_propTypes2.default.array).isRequired,
   descriptions: _propTypes2.default.arrayOf(_propTypes2.default.array),

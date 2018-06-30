@@ -19,9 +19,7 @@ export default class HeatMap extends Component {
 }
 
 HeatMap.propTypes = {
-  xLabels: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  ).isRequired,
+  xLabels: PropTypes.arrayOf(PropTypes.object).isRequired,
   yLabels: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   ).isRequired,

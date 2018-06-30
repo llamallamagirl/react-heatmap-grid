@@ -57,9 +57,7 @@ export default class DataGrid extends Component {
 };
 
 DataGrid.propTypes = {
-  xLabels: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  ).isRequired,
+  xLabels: PropTypes.arrayOf(PropTypes.object).isRequired,
   yLabels: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   ).isRequired,
