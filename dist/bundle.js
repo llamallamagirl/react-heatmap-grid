@@ -1021,11 +1021,15 @@ function XLabels(_ref) {
     labels.map(function (x) {
       return _react2.default.createElement(
         'div',
-        { className: 'angle-label', key: x.line1, style: { flex: 1, textAlign: 'center' } },
-        x.line1,
+        { className: 'label-inner', key: x.line1, style: { flex: 1, textAlign: 'center' } },
+        _react2.default.createElement(
+          'div',
+          { className: 'label-1' },
+          x.line1
+        ),
         x.line2 && _react2.default.createElement(
           'div',
-          null,
+          { className: 'label-2' },
           x.line2
         )
       );
