@@ -1021,7 +1021,7 @@ function XLabels(_ref) {
     labels.map(function (x) {
       return _react2.default.createElement(
         'div',
-        { className: 'label-inner', key: x.line1, style: { flex: 1, textAlign: 'center' } },
+        { className: 'label-inner', key: x.line2, style: { flex: 1, textAlign: 'center' } },
         _react2.default.createElement(
           'div',
           { className: 'label-1' },
