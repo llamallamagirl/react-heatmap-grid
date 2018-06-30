@@ -7,8 +7,9 @@ function XLabels({labels, width}) {
     <div className="heat-x-label" style={{display: 'flex'}}>
       <FixedBox width={width} />
       {labels.map(x => (
-        <div className="angle-label" key={x} style={{flex: 1, textAlign: 'center'}}>
-          {x}
+        <div className="angle-label" key={x.line1} style={{flex: 1, textAlign: 'center'}}>
+          {x.line1}
+          {x.line2 && <div>{x.line2}</div> }
         </div>
       ))}
     </div>
