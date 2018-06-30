@@ -940,7 +940,7 @@ var DataGrid = function (_Component) {
                   onClick: function onClick() {
                     return _this2.setSelected(xi + '-' + yi);
                   },
-                  key: x.label1 + '-' + x.label2 + '_' + y,
+                  key: x.line1 + '-' + x.line2 + '_' + y,
                   style: {
                     margin: '1px 1px 0 0',
                     height: _this2.isSelected(xi + '-' + yi) ? 'unset' : height,
